@@ -1,0 +1,103 @@
+
+
+<mat-card-content>
+  
+    
+      <div class="space">
+      <button mat-raised-button  type="submit" class="me-8 mb-8" (click)="addMember()" color="primary">Adicionar Pessoas</button>
+      
+      <div>
+        <input matInput  type="text" style="height: 38px; margin-right: 10px;" class="search" mat-icon-button [(ngModel)]="search"  name="search"  id="search" placeholder="Pesquisar...">
+         <button mat-raised-button color="primary" (click)="searchByName()">Pesquisar</button>
+      </div>
+      </div>
+
+
+   
+
+
+    <mat-card class="w-100">
+        <mat-card-content>
+          <h4 class="mb-56">Lista de Pessoas físicas</h4>
+      
+          <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" class="text-nowrap w-100">
+      
+      
+              <!-- Assigned Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let element">
+                  <p class="mb-0 fw-medium">{{ element.name}}</p>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="surname">
+                <th mat-header-cell *matHeaderCellDef> Sobrenome </th>
+                <td mat-cell *matCellDef="let element">
+                  <p class="mb-0 fw-medium">{{ element.surname }}</p>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="birth">
+                <th mat-header-cell *matHeaderCellDef> Data de nascimento </th>
+                <td mat-cell *matCellDef="let element">
+                  <p class="mb-0 fw-medium">{{ element.birthDate | date: 'yyyy-MM-dd' }}</p>
+                </td>
+              </ng-container>              
+      
+              <ng-container matColumnDef="seemore">
+                <th mat-header-cell *matHeaderCellDef> Contato/Endereço </th>
+                <td mat-cell *matCellDef="let element">
+                  <a routerLink="#" (click)="seeMore(element)" class="badge badge-info rounded-pill" >Ver
+                </a>
+                </td>
+              </ng-container> 
+
+              <ng-container matColumnDef="user">
+                <th mat-header-cell *matHeaderCellDef> Usuário </th>
+                <td mat-cell *matCellDef="let element">
+                  <p class="mb-0 fw-medium">{{ element.userName}}</p>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Excluir </th>
+                <td mat-cell *matCellDef="let element">
+                  <a routerLink="#" onclick=""   (click)="modalDelete(element.name,element.id)" class=" badge badge-danger rounded-pill" >Excluir
+                </a>
+                </td>
+              </ng-container>
+      
+              
+      
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+
+          <div *ngIf="carregando" class="spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="!carregando && totalItems === 0" class="mensagem-sem-registros">
+            Nenhum registro carregado
+        </div>
+
+
+      <mat-paginator 
+
+          
+         [length]="totalItems"
+         [pageSize]="5"
+         [pageSizeOptions]="[5, 10, 50, 100]"
+         aria-label="Select page"
+         (page)="pageEvent = $event;  getAll()">
+   </mat-paginator>
+
+        </mat-card-content>
+      </mat-card>
+
+
+
+
+</mat-card-content>

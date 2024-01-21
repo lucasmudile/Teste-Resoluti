@@ -1,0 +1,18 @@
+<!-- Daily Activity -->
+<mat-card>
+  <mat-card-content>
+    <h4 class="mb-60">Actividades a decorrer</h4>
+    <div class="d-flex" *ngFor="let activity of dataSource">
+      <p class="fw-bold ps-16 pe-20 fs-12">{{ activity.startDate | date: 'yyyy-MM-dd' }}</p>
+      <div class="activity-border">
+        <div class="deep">
+          <div class="activity-ring">
+            <div class="ring ring-success"></div>
+          </div>
+        </div>
+        <p class="ps-20 pe-16 activity-message">{{ activity.subject }}</p>
+      </div>
+    </div>
+    <button mat-raised-button (click)="goToSeeActivity()" class="me-8 mb-8" color="primary">Ver mais</button>
+  </mat-card-content>
+</mat-card>

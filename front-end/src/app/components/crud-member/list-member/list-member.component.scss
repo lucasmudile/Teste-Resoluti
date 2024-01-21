@@ -1,0 +1,38 @@
+.space {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search{
+    height: 60px;
+}
+
+.spinner {
+    position: relative;
+    margin-left: 45%;
+    margin-top: 10%;
+}
+
+
+  /* Estilos para dispositivos móveis */
+  @media screen and (max-width: 600px) { /* Ajuste para telas menores que 600px (telefones) */
+    .flex-container {
+        display: grid;
+        grid-template-columns: 1fr; /* Uma coluna */
+        //grid-template-rows: repeat(4, auto); /* Quatro linhas */
+        gap: 10px; /* Espaçamento entre os itens */
+    }
+
+    mat-form-field {
+        width: 100%; /* Ocupa toda a largura disponível */
+    }
+}
+
+@media screen and (min-width: 601px) { /* Ajuste para telas maiores que 600px (computadores) */
+    .flex-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Duas colunas */
+        //grid-template-rows: repeat(2, auto); /* Duas linhas */
+        gap: 10px; /* Espaçamento entre os itens */
+    }
+}

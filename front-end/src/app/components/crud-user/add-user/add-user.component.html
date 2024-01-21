@@ -1,0 +1,45 @@
+<!-- Form Layout -->
+
+<!-- Form Layout -->
+<div class="card-body">
+  <h4 class="mb-32">Cadastrar Usuário</h4>
+  <form (ngSubmit)="saveUser()">
+
+    <div class="flex-container">
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Nome de Usuário</mat-label>
+        <input matInput type="text" [(ngModel)]="userName" name="userName" id="userName" placeholder="Nome de Usuário" required="">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" id="email" placeholder="Email" required="">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input matInput type="text" [(ngModel)]="telephone" name="telephone" id="telephone" placeholder="Telefone" required="">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" id="password" placeholder="Password" required="">
+      </mat-form-field>
+
+      <div class="ml-3 bd-highlight" style="width: 40%;">
+        <img [src]=PhotoFilePath height="250px;" width="200px;">
+        <input type="file" (change)="uploadPhoto($event)" class="mt-2" />
+      </div>
+    </div>
+
+
+    <br>
+    <br>
+    <button mat-raised-button type="button" (click)="closeDialog()" mat-raised-button class="me-8 mb-8" color="warn">
+      Cancelar</button>
+
+    <button mat-raised-button type="submit" class="me-8 mb-8" color="primary">Cadastrar Usuário</button>
+
+  </form>
+</div>

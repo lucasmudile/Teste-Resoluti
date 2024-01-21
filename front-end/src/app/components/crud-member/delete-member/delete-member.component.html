@@ -1,0 +1,19 @@
+<!-- Form Layout -->
+
+<!-- Form Layout -->
+<div class="card-body">
+    <h4 class="mb-32">Excluir Pessoa</h4>
+    <form>
+     
+        <p>Deseja excluir a pessoa <br> {{data.name}}?</p>        
+    </form>
+    <button mat-raised-button type="button" (click)="closeDialog()" mat-raised-button class="me-8 mb-8" color="warn">
+        Cancelar</button>
+
+    <button mat-raised-button  type="submit" class="me-8 mb-8"
+        color="primary" (click)="Delete(data.id)">Excluir</button>
+</div>
+
+
+
+

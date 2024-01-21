@@ -1,0 +1,9 @@
+<h3>Endereços</h3>
+<p *ngFor="let address of data.person.addresses">Rua: {{address.street}} <br> Numero: {{address.number}}<br> CEP: {{address.cep}}<br> Complemento: {{address.complemento}} <br>  Cidade: {{address.city}}<br> Estado: {{address.state}}</p>
+
+<br>
+<h3>Contatos</h3>
+<p *ngFor="let contact of data.person.contacts">Nome: {{contact.name}} <br> Contato: {{contact.contactNumber}}<br> Tipo: {{contact.type}}</p>
+
+<button mat-raised-button type="button" (click)="closeDialog()" mat-raised-button class="me-8 mb-8" color="warn">
+    Fechar</button>
