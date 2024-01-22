@@ -23,13 +23,13 @@ namespace Resoluti.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers([FromQuery] DefaultQueryParameters defaultQuery)
+        public async Task<IActionResult> GetAllPeople([FromQuery] DefaultQueryParameters defaultQuery)
         {
             return Ok(await _personService.SelectAll(defaultQuery));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
             return Ok(await _personService.GetById(id));
         }
@@ -41,14 +41,14 @@ namespace Resoluti.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SaveUser(PersonAddDTO personAdd)
+        public async Task<IActionResult> SavePerson(PersonAddDTO personAdd)
         {
             return Ok(await _personService.RegisterAsync(personAdd));
         }
 
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser(PersonUpdateDTO personUpdate)
+        public async Task<IActionResult> UpdatePerson(PersonUpdateDTO personUpdate)
         {
             return Ok(await _personService.UpdateAsync(personUpdate));
         }
